@@ -1,11 +1,7 @@
-package com.CollectionFrameWorks.LinkedLists.Singly;
+package com.CollectionFrameWorks.LinkedList.Singly;
 //import com.LeetCode.medium.ListNode;
 //import com.LeetCode.medium.N;
-import java.beans.Introspector;
 import java.util.*;
-
-
-import com.LeetCode.Easy.ListNode;
 
 public class LL {
     private Node head;

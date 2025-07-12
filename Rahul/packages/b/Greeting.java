@@ -1,4 +1,4 @@
-package com.Rajpoot.packages.b;
+package com.Rahul.packages.b;
 
 public class Greeting {
     public static void main(String[] args) {

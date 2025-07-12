@@ -51,10 +51,10 @@ public class N_Queens {
         for(boolean[] row:board){
             for (boolean element:row){
                 if (element){
-                    System.out.print("Q ");
+                    System.out.print("Q");
                 }
                 else {
-                    System.out.print("* ");
+                    System.out.print("_");
                 }
             }
             System.out.println();

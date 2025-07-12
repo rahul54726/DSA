@@ -10,8 +10,6 @@ public class Nknights {
             System.out.println();
             return ;
         }
-
-
         if (r==board.length-1&& c==board.length){
             return ;
         }
@@ -32,16 +30,16 @@ public class Nknights {
             if(board[r-2][c-1]){
                 return false;
             }
+        }if (isValid(board,r-1,c-2)){
+            if(board[r-1][c-2]){
+                return false;
+            }
         }if (isValid(board,r-2,c+1)){
             if(board[r-2][c+1]){
                 return false;
             }
-        }if (isValid(board,r+1,c-2)){
-            if(board[r+1][c-2]){
-                return false;
-            }
-        }if (isValid(board,r-1,c-2)){
-            if(board[r-1][c-2]){
+        }if (isValid(board,r-1,c+2)){
+            if(board[r-1][c+2]){
                 return false;
             }
         }

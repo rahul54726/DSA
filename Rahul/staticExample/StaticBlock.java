@@ -1,4 +1,4 @@
-package com.Rajpoot.staticExample;
+package com.Rahul.staticExample;
 //this is a demo to show initialisation of static variables
 public class StaticBlock {
     static int a=4;

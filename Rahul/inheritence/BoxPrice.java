@@ -1,4 +1,4 @@
-package com.Rajpoot.inheritence;
+package com.Rahul.inheritence;
 
 public class BoxPrice extends BoxWeight{
     double price;

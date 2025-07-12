@@ -1,7 +1,5 @@
 package com.Recursion.Sorting;
-
 import java.util.Arrays;
-
 public class QuickSort {
     static void quicksort(int[] arr,int low ,int high){
         int s=low;

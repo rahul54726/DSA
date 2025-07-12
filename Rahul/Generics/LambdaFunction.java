@@ -1,4 +1,4 @@
-package com.Rajpoot.Generics;
+package com.Rahul.Generics;
 import java.util.ArrayList;
 public class LambdaFunction {
     public static void main(String[] args) {

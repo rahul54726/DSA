@@ -19,7 +19,6 @@ public class Dice {
     }
     static ArrayList<String> dice(String p, int target , ArrayList<String> list){
         if(target==0){
-
             list.add(p);
             return list;
         }

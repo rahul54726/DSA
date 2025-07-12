@@ -3,10 +3,10 @@ package com.Multithreading.DeadLock;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class UnfairLock {
-    private final Lock unfairLock = new ReentrantLock();
+public class FairLock {
+    private final Lock lock = new ReentrantLock(true);
     public void accesResourse(){
-        unfairLock.lock();
+        lock.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " Acquired the Lock.");
             Thread.sleep(1000);
@@ -14,13 +14,13 @@ public class UnfairLock {
             Thread.currentThread().isInterrupted();
         }
         finally {
-            unfairLock.unlock();
+            lock.unlock();
             System.out.println(Thread.currentThread().getName() + " released the Lock");
         }
     }
 
     public static void main(String[] args) {
-        UnfairLock example = new UnfairLock();
+        FairLock example = new FairLock();
         Runnable task = new Runnable() {
             @Override
             public void run() {

@@ -1,4 +1,4 @@
-package com.Multithreading;
+package com.Multithreading.Demo;
 
 public class Process implements Runnable{
     @Override

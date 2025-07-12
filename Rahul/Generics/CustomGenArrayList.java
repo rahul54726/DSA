@@ -1,10 +1,12 @@
-package com.Rajpoot.Generics;
+package com.Rahul.Generics;
 import java.util.Arrays;
-public class CustomGenArrayList<T>{
+//wild cards in java means generics with more restricted type providing like
+// in generics we provide type but in wildcards we extend the given castings like
+//public class CustomGenArrayList<T extends Number> here T will be number or its subtype
+public class CustomGenArrayList<T extends Number>{
     private Object[] data;
     private int DEFAULT_SIZE=10;
     private int size=0;
-
     @Override
     public String toString() {
         return "CustomArrayList{" +
@@ -34,8 +36,7 @@ public class CustomGenArrayList<T>{
         return size==data.length;
     }
     public T remove(){
-        T removed_item=(T) data[--size];
-        return removed_item;
+        return (T) data[--size];
     }
     public  T get(int index){
         return  (T) data[index];
@@ -44,7 +45,7 @@ public class CustomGenArrayList<T>{
         return size;
     }
     public void set(int index, T value){
-        data[index]= (int) value;
+        data[index]= value;
     }
 
     public static void main(String[] args) {
@@ -58,6 +59,6 @@ public class CustomGenArrayList<T>{
         CustomGenArrayList<Integer> l=new CustomGenArrayList<>();
         l.add(5);
         System.out.println(l);
-        CustomGenArrayList<String> rahul=new CustomGenArrayList<>();
+
     }
 }

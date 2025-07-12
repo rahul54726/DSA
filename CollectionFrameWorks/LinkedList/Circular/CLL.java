@@ -1,4 +1,4 @@
-package com.CollectionFrameWorks.LinkedLists.Circular;
+package com.CollectionFrameWorks.LinkedList.Circular;
 
 public class CLL {
     private Node head;

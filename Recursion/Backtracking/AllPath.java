@@ -1,11 +1,9 @@
 package com.Recursion.Backtracking;
-
 import java.util.Arrays;
-
 public class AllPath {
     public static void main(String[] args) {
         boolean[][] board={
-                {true,true,false},
+                {true,true,true},
                 {true,true,true},
                 {true,true,true},
         };
@@ -19,15 +17,17 @@ public class AllPath {
             return;
         }
         if (!maze[r][c]) return;
-        //I am concidering this block in my path
+        //I am considering this block in my path
         maze[r][c] = false;
         if (c < maze[0].length - 1) allpath(p + 'R', r, maze, c + 1);
         if (r > 0) allpath(p + 'U', r - 1, maze, c);
 
         if (r < maze.length - 1) allpath(p + 'D', r + 1, maze, c);
         if (c > 0) allpath(p + 'L', r, maze, c - 1);
-//         this line is where the funtion will be over
-//        so before the function gets removed also remove the changes that were made by that funtion
+        //for diagonal
+
+//         this line is where the function will be over
+//        so before the function gets removed also remove the changes that were made by that function
         maze[r][c]=true;
     }
     static void allpathprint(String p,int r,boolean[][] maze,int c,int[][] path,int step) {

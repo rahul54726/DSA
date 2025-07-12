@@ -1,4 +1,4 @@
-package com.Rajpoot.staticExample;
+package com.Rahul.staticExample;
 
 public class Human {
     int age ;

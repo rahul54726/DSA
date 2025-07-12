@@ -1,4 +1,4 @@
-package com.CollectionFrameWorks.LinkedLists.Singly;
+package com.CollectionFrameWorks.LinkedList.Singly;
 
 public class Main {
     public static void main(String[] args) {

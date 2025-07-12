@@ -1,4 +1,4 @@
-package com.Rajpoot.Interface.Annotations;
+package com.Rahul.Interface.Annotations;
 
 public interface B {
     void greet();

@@ -1,4 +1,4 @@
-package com.CollectionFrameWorks.LinkedLists.Doubly;
+package com.CollectionFrameWorks.LinkedList.Doubly;
 
 public class DLL {
     private Node head;

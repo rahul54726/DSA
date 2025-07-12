@@ -1,4 +1,4 @@
-package com.Rajpoot.Generics;
+package com.Rahul.Generics;
 
 public interface GenricInterface<T>{
     void display(T value);

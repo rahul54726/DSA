@@ -1,8 +1,7 @@
-package com.Rajpoot.staticExample;
+package com.Rahul.staticExample;
 public class InnerClasses {
     static class Test{
         String name;
-
         public Test(String name) {
             this.name = name;
         }
@@ -13,5 +12,6 @@ public class InnerClasses {
          Test b=new Test("Raj");
          System.out.println(a.name);
          System.out.println(b.name);
+    
      }
 }

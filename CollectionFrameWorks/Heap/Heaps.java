@@ -20,13 +20,18 @@ public class Heaps <T extends Comparable<T>> {
     private int right(int index){
      return index*2 + 2;
     }
+    public int size(){
+        return list.size();
+    }
+    // min heap
     public void insert(T val){
         list.add(val);
         upheap(list.size()-1);
     }
-
     private void upheap(int index) {
-        if (index==0) return;
+        if (index==0) {
+            return;
+        }
         int p=parent(index);
         if (list.get(index).compareTo(list.get(p))<0){
             swap(index ,p);
@@ -35,7 +40,7 @@ public class Heaps <T extends Comparable<T>> {
     }
     public  T remove() throws Exception{
         if (list.isEmpty()){
-            throw new Exception("List is Empty");
+            throw new Exception("List is Empty!!");
         }
         T temp = list.getFirst();
         T last=list.removeLast();
@@ -53,7 +58,7 @@ public class Heaps <T extends Comparable<T>> {
         if (left<list.size() && list.get(min).compareTo(list.get(left))>0){
             min=left;
         }
-         if (right<list.size() && list.get(min).compareTo(list.get(right))>0){
+        if (right<list.size() && list.get(min).compareTo(list.get(right))>0){
             min=right;
         }
         if (min!=index){

@@ -1,4 +1,4 @@
-package com.Rajpoot.Generics.comparing;
+package com.Rahul.Generics.comparing;
 
 public class Student implements Comparable<Student>{
     int rollno;
@@ -10,8 +10,13 @@ public class Student implements Comparable<Student>{
     }
 
     @Override
-    public int compareTo(Student o) {
-        int diff=(int) (this.sgpa-o.sgpa);
+    public String toString() {
+        return rollno+"";
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        int diff=(int) (this.sgpa-other.sgpa);
         //if diff=0; : means both are equal
         //if dif>0 : means o is smaller
         //if dif<0 : means o is greater

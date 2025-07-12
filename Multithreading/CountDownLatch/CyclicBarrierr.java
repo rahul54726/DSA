@@ -2,7 +2,7 @@ package com.Multithreading.CountDownLatch;
 
 import java.util.concurrent.*;
 
-public class Main {
+public class CyclicBarrierr {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 //        ExecutorService executorService = Executors.newFixedThreadPool(3);
 //       Future<String> future1 = executorService.submit(new DependentService());
@@ -15,30 +15,30 @@ public class Main {
 //
         int numService = 3;
         ExecutorService executorService = Executors.newFixedThreadPool(numService);
-        CountDownLatch latch = new CountDownLatch(numService);
-        executorService.submit(new DependentService(latch));
-        executorService.submit(new DependentService(latch));
-        executorService.submit(new DependentService(latch));
-        latch.await();
+        CyclicBarrier barrier = new CyclicBarrier(numService);
+        executorService.submit(new DependentService(barrier));
+        executorService.submit(new DependentService(barrier));
+        executorService.submit(new DependentService(barrier));
 
         System.out.println("All dependence Services are Finished Starting main Service...");
 
         executorService.shutdown();
     }
-}
-class DependentService implements Callable<String> {
-    private final CountDownLatch latch;
-    public DependentService(CountDownLatch latch){
-        this.latch = latch;
-    }
-    @Override
-    public String call() throws Exception {
-        try {
-            System.out.println(Thread.currentThread().getName() + " Service Started");
-            Thread.sleep(2000);
-        }finally {
-            latch.countDown();
+    static class DependentService implements Callable<String> {
+        private final CyclicBarrier barrier;
+        public DependentService(CyclicBarrier barrier){
+            this.barrier = barrier;
         }
-        return "OK";
+        @Override
+        public String call() throws Exception {
+
+                System.out.println(Thread.currentThread().getName() + " Service Started");
+                Thread.sleep(1000);
+                System.out.println(Thread.currentThread().getName() + " is waiting at the barrier .");
+                barrier.await();
+
+            return "OK";
+        }
     }
 }
+

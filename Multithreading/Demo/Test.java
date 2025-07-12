@@ -1,4 +1,4 @@
-package com.Multithreading;
+package com.Multithreading.Demo;
 
 public class Test {
     public static void main(String[] args) {

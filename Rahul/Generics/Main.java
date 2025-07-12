@@ -1,4 +1,4 @@
-package com.Rajpoot.Generics;
+package com.Rahul.Generics;
 
 public class Main implements GenricInterface<Integer>{
     @Override

@@ -4,7 +4,7 @@ public class FibonacciSeries {
     public static void main(String[] args) {
 //        find nth fibonacii number
         System.out.println(fib(10));
-        System.out.println(fiboformula(10));
+//        System.out.println(fiboformula(10));
 
     }
     static int fiboformula(int n){

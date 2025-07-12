@@ -1,11 +1,10 @@
-package com.CollectionFrameWorks.Graphs;
+package com.CollectionFrameWorks.Graphs.graph;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Graph {
     private  int numVertices;
-    private LinkedList<Integer>[] adjacencyList;
+    private  LinkedList<Integer>[] adjacencyList;
     public Graph(int size) {
         this.numVertices = size;
         adjacencyList=new LinkedList[size];
@@ -15,6 +14,8 @@ public class Graph {
     }
     public void addEdge(int source, int destination) {
         adjacencyList[source].add(destination);
+//        for bi-directional graph
+        adjacencyList[destination].add(source);
     }
     public void printGraph() {
         for (int i = 0; i < numVertices; i++) {
@@ -30,10 +31,10 @@ public class Graph {
 
     }
     private class Edge{
-        int destination,weight;
-        public Edge(int destination,int weight){
-            this.destination=destination;
-            this.weight=weight;
+        int des,src;
+        public Edge(int src,int destination){
+            this.des=destination;
+            this.src=src;
         }
     }
 }

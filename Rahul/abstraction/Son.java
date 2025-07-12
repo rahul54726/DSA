@@ -1,4 +1,4 @@
-package com.Rajpoot.abstraction;
+package com.Rahul.abstraction;
 
 public  class Son extends Parent{
     @Override
@@ -9,9 +9,10 @@ public  class Son extends Parent{
     @Override
     void partner(String name, int age) {
         System.out.println("I Love " + name+" and she is "+age+" years old");
-
     }
-
+    void  normal(){
+        System.out.println("this is Normal");
+    }
     @Override
     void live(String city) {
         System.out.println("And i'll live in "+city + " after my study will finish");

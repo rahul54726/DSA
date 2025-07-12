@@ -96,6 +96,39 @@ public class Sudoku {
             System.out.println();
         }
     }
+    public boolean exist(char[][] board, String word) {
+        int r = board.length;
+        int c = board[0].length;
+        for(int i = 0;i<r;i++){
+            for(int j = 0;j<c;j++){
+                if(board[i][j] == word.charAt(0) && find(i,j,word.substring(1),board)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean find(int i, int j, String str, char[][] board) {
+        if(str.isEmpty()){
+            return true;
+        }
+        if(i<0||j<0||i>= board.length ||j>= board[0].length || board[i][j] == '0'){
+            return false;
+        }
+        if(board[i][j] != str.charAt(0)){
+            return false;
+        }
+        char temp = board[i][j];
+        board[i][j]='0';
+        //backtrack
+        boolean found =  find(i+1,j,str.substring(1),board)
+                ||find(i-1,j,str.substring(1),board)
+                ||find(i,j+1,str.substring(1),board)
+                || find(i,j-1,str.substring(1),board);
+        board[i][j] = temp;
+        return found;
+    }
 
 
 }

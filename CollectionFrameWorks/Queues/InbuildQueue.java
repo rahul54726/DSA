@@ -1,5 +1,4 @@
 package com.CollectionFrameWorks.Queues;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -11,7 +10,7 @@ public class InbuildQueue {
         queue.add(5);
         queue.add(19);
         queue.add(1);
-        System.out.println(queue.toString());
+        System.out.println(queue);
         System.out.println(queue.remove());
         System.out.println(queue.remove());
         System.out.println(queue.remove());

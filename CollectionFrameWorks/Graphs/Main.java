@@ -1,4 +1,5 @@
-package com.CollectionFrameWorks.Graphs.wtgraph;
+package com.CollectionFrameWorks.Graphs;
+
 public class Main {
     public static void main(String[] args) {
         WtGraph graph=new WtGraph(4);

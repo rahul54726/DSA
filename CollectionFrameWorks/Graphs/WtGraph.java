@@ -1,4 +1,4 @@
-package com.CollectionFrameWorks.Graphs.wtgraph;
+package com.CollectionFrameWorks.Graphs;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -13,7 +13,7 @@ public class WtGraph {
         }
     }
     public WtGraph(int size){
-        this.vertices =size;
+        this.vertices = size;
         adjlist=new LinkedList[size];
         for (int i=0;i<size;i++){
             adjlist[i]=new LinkedList<Edge>();

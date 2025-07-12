@@ -24,7 +24,5 @@ public class DynamicStack extends CustomStackImpl{
 
     public DynamicStack(int size) {
         super(size); //it will call CustomStack(int size)
-
-
     }
 }

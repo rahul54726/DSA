@@ -1,4 +1,4 @@
-package com.CollectionFrameWorks.Graphs;
+package com.CollectionFrameWorks.Graphs.graph;
 
 public class Main {
     public static void main(String[] args) {

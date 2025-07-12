@@ -1,4 +1,4 @@
-package com.Multithreading;
+package com.Multithreading.Demo;
 
 public class Counter {
     private  int count = 0;

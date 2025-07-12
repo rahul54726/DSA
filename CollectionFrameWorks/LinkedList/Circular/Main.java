@@ -1,4 +1,4 @@
-package com.CollectionFrameWorks.LinkedLists.Circular;
+package com.CollectionFrameWorks.LinkedList.Circular;
 
 public class Main {
     public static void main(String[] args) {

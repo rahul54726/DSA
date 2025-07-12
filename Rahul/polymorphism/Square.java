@@ -1,4 +1,4 @@
-package com.Rajpoot.polymorphism;
+package com.Rahul.polymorphism;
 
 public class Square extends Shapes{
     int a =50;

@@ -1,4 +1,4 @@
-package com.Rajpoot.polymorphism;
+package com.Rahul.polymorphism;
 
 public class Triangle extends Shapes{
     @Override

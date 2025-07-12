@@ -1,4 +1,4 @@
-package com.Rajpoot.Interface;
+package com.Rahul.Interface;
 
 public class CDPlayer implements Media{
     @Override

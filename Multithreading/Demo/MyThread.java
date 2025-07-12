@@ -1,4 +1,4 @@
-package com.Multithreading;
+package com.Multithreading.Demo;
 
 public class MyThread extends Thread{
 //    public MyThread(String name){

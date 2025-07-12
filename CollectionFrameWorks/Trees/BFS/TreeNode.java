@@ -1,7 +1,7 @@
 package com.CollectionFrameWorks.Trees.BFS;
 import java.util.*;
 public class TreeNode {
-    int val;
+        int val;
       TreeNode left;
       TreeNode right;
       TreeNode next;
@@ -21,32 +21,29 @@ public class TreeNode {
         this.next = next;
     }
 
-    class Solution {
-        public List<List<Integer>> levelOrder(TreeNode root) {
-            List<List<Integer>> result = new ArrayList<>();
-            if (root == null){
-                return result;
-            }
-            Queue<TreeNode> que=new LinkedList<>();
-            que.offer(root);
-            while (!que.isEmpty()){
-                int levelSize = que.size();
-                List<Integer> currentLevelList=new ArrayList<>(levelSize);
-                for (int i = 0; i < levelSize; i++) {
-                    TreeNode currentNode=que.poll();
-                    currentLevelList.add(currentNode.val);
-                    if(currentNode.left!=null){
-                        que.offer(currentNode.left);
-                    }if(currentNode.right!=null){
-                        que.offer(currentNode.right);
-                    }
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result=new ArrayList<>();
+        if(root == null) return result;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            int levelSize = queue.size();
+            ArrayList<Integer> currentLevelList =new ArrayList<>(levelSize);
+            for (int i = 0;i<levelSize;i++){
+                TreeNode currentNode = queue.poll();
+                currentLevelList.add(currentNode.val);
+                if(currentNode.left != null){
+                    queue.offer(currentNode.left);
                 }
-                result.add(currentLevelList);
-
+                if(currentNode.right != null){
+                    queue.offer(currentNode.right);
+                }
             }
-            return result;
+            result.add(currentLevelList);
         }
-    }
+        return result;
+        }
+
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> result = new ArrayList<>();
         if (root == null){
@@ -74,24 +71,14 @@ public class TreeNode {
         return result;
     }
     public  TreeNode findSuccessor(TreeNode root, int key){
-        if (root == null){
-            return null;
-        }
+        if(root == null) return null;
         Queue<TreeNode> que=new LinkedList<>();
         que.offer(root);
-        while (!que.isEmpty()){
-            int levelSize = que.size();
-                TreeNode currentNode=que.poll();
-                if(currentNode.left!=null){
-                    que.offer(currentNode.left);
-                }if(currentNode.right!=null){
-                    que.offer(currentNode.right);
-                }
-                if (currentNode.val==key){
-                    break;
-                }
-
-
+        while(!que.isEmpty()){
+            TreeNode currentNode = que.poll();
+            if(currentNode.left != null) que.offer(currentNode.left);
+            if(currentNode.right != null) que.offer(currentNode.right);
+            if(currentNode.val == key) break;
         }
         return que.peek();
     }
@@ -128,7 +115,6 @@ public class TreeNode {
                 reverse = !reverse;
             }
             result.add(currentLevelList);
-
         }
         return result;
     }
@@ -164,7 +150,7 @@ public class TreeNode {
                 }
                 reverse = !reverse;
             }
-            result.add(0,currentLevelList);
+            result.addFirst(currentLevelList);
 
         }
         return result;
@@ -208,8 +194,6 @@ public class TreeNode {
                     que.offer(currentNode.right);
                 }
             }
-
-
         }
         return result;
     }
@@ -262,26 +246,94 @@ public class TreeNode {
 
     }
     public boolean isSymmetric(TreeNode root) {
-        Queue<TreeNode> que=new LinkedList<>();
-        que.add(root.left);
-        que.add(root.right);
+        Queue<TreeNode> que = new LinkedList<>();
+        que.offer(root.left);
+        que.offer(root.right);
         while (!que.isEmpty()){
-            TreeNode left=que.poll();
-            TreeNode right=que.poll();
-            if (left==null && right==null){
-                continue;
-            }
-            if (left==null || right==null){
-                return false;
-            }
-            if (left.val != right.val ){
-                return false;
-            }
-            que.add(left.left);
-            que.add(right.right);
-            que.add(left.right);
-            que.add(right.left);
+            TreeNode left = que.poll();
+            TreeNode right = que.poll();
+            if(left == null && right == null) continue;
+            if(left == null || right == null) return false;
+            if(left.val != right.val) return false;
+            que.offer(left.left);
+            que.offer(right.right);
+            que.offer(left.right);
+            que.offer(right.left);
         }
         return true;
+
+    }
+    public boolean isBalanced(TreeNode root) {
+        if(root==null) return true;
+        return Math.abs(height(root.left)- height(root.right)) <= 1  && isBalanced(root.left) && isBalanced(root.right);
+    }
+    private int height(TreeNode root){
+          if(root==null){
+              return 0;
+          }
+          int left=height(root.left);
+          int right=height(root.right);
+          return Math.max(left,right)+1;
+    }
+    class FindElements {
+        TreeNode root;
+        private Set<Integer> values=new HashSet<>();
+        public FindElements(TreeNode root) {
+            this.root=root;
+            restoreTree(root,0);
+        }
+
+        private void restoreTree(TreeNode root, int value) {
+            if(root==null) return;
+            root.val=value;
+            values.add(value);
+            restoreTree(root.left,2*value+1);
+            restoreTree(root.right,2*value+2);
+        }
+
+        public boolean find(int target) {
+            return values.contains(target);
+        }
+    }
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list=new ArrayList<>();
+         help(root,list);
+        return list;
+    }
+
+    private void help(TreeNode root, List<Integer> list) {
+          Stack<Integer> stack=new Stack<>();
+          if (root==null) return;
+          help(root.left,list);
+          help(root.right,list);
+          list.add(root.val);
+
+
+    }
+    public int sumOfLeftLeaves(TreeNode root) {
+        if(root == null) return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int ans = 0;
+        while (!queue.isEmpty()){
+            TreeNode current =queue.poll();
+
+            if(current.left != null) {
+                if(current.left.left == null && current.left.right == null) {
+                    ans += current.left.val;
+                }
+                queue.offer(current.left);
+            }
+            if(current.right != null) queue.offer(current.right);
+        }
+        return ans;
+    }
+
+    private boolean isLeft(TreeNode current,boolean isleft) {
+        if (current == null) return false;
+        if (current.left == null && current.right == null && isleft){
+            return true;
+        }
+        return isLeft(current.left,true) || isLeft(current.right,false);
     }
 }

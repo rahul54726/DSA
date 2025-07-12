@@ -1,4 +1,4 @@
-package com.Rajpoot.encapsulation;
+package com.Rahul.encapsulation;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,8 +7,10 @@ public class Main {
 //        2.Modify the data members
 //        System.out.println(obj.num);
         System.out.println(obj.getNum());
+        obj.setname("Rahul");
         obj.setNum(25);
         System.out.println(obj.getNum());
+        System.out.println(obj.getName());
 
 
     }

@@ -1,4 +1,4 @@
-package com.Rajpoot.Interface;
+package com.Rahul.Interface;
 
 public interface Media {
     void start();

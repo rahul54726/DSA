@@ -12,7 +12,6 @@ public class noofsetbits {
 
     public static void main(String[] args) {
         int n=21;
-
         System.out.println(setbits(n));
     }
 }

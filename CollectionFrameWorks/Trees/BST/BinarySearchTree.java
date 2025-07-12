@@ -1,8 +1,8 @@
 package com.CollectionFrameWorks.Trees.BST;
+import java.util.ArrayList;
 public class BinarySearchTree {
    private Node root;
    public BinarySearchTree(){
-
    }
    public int height(Node node){
        if(node==null){
@@ -11,10 +11,10 @@ public class BinarySearchTree {
        return  node.height;
    }
    private boolean isEmpty(){
-       return root == null;
+       return this.root == null;
    }
    public void display(){
-       display(root,"Root Node : ");
+       display(this.root,"Root Node : ");
    }
 
     private void display(Node node, String details) {
@@ -26,22 +26,23 @@ public class BinarySearchTree {
        display(node.right,"This is right child of " +node.getVal()+ " : ");
     }
     public void insert(int val){
-       root=insert(val,root);
+       root=insert(val,this.root);
     }
     private Node insert(int val,Node node){
-       if (node==null){
-           node=new Node(val);
-           return node;
-       }
-       if (val<=node.val){
-           node.left=insert(val,node.left);
-       }
-       else {
-           node.right=insert(val,node.right);
-       }
-       node.height=Math.max(height(node.left), height(node.right))+1;
-       return node;
+        if (node==null){
+            node=new Node(val);
+            return node;
+        }
+        if (val<=node.val){
+            node.left = insert(val,node.left);
+        }
+        else {
+            node.right = insert(val,node.right);
+        }
+        node.height=Math.max(height(node.left), height(node.right))+1;
+        return node;
     }
+
     public boolean balanced(){
        return balanced(root);
     }
@@ -54,7 +55,7 @@ public class BinarySearchTree {
     }
     public void populate(int[] nums){
        for(int num:nums){
-           insert(num);
+           this.insert(num);
        }
     }
     public void populateSorted(int[] nums){
@@ -65,7 +66,7 @@ public class BinarySearchTree {
            return;
        }
            int mid=(start+end)/2;
-           insert(nums[mid]);
+           this.insert(nums[mid]);
            populateSorted(nums,start,mid);
            populateSorted(nums,mid+1,end);
 
@@ -77,10 +78,11 @@ public class BinarySearchTree {
        if(node==null){
            return;
        }
-        System.out.print(node.val+" ");
+       System.out.print(node.val+" ");
        preOrder(node.left);
        preOrder(node.right);
     }
+
     public void inOrder(){
         inOrder(root);
     }
@@ -101,6 +103,38 @@ public class BinarySearchTree {
        postOrder(node.right);
         System.out.print(node.val+ " ");
     }
+    public void delete(int key){
+       root=deleteNode(root,key);
+    }
+    private Node deleteNode(Node root,int key){
+       if(root==null) return null;
+       if(key<root.val){
+           root.left=deleteNode(root.left,key);
+       }
+       else if(key>root.val){
+           root.right=deleteNode(root.right,key);
+       }
+       else{
+           //case1 no child
+           if(root.left==null && root.right==null ) return null;
+           //case2 one child
+           if(root.left==null) return root.right;
+           else if(root.right==null ) return root.left;
+           //case3 two child
+           Node successor=findMin(root.right);
+           root.val=successor.val;
+           root.right=deleteNode(root.right,successor.val);
+       }
+       return root;
+    }
+
+    private Node findMin(Node node) {
+       while (node.left!=null){
+           node=node.left;
+       }
+       return node;
+    }
+
     private static class Node{
         int val;
         int height;
@@ -119,4 +153,5 @@ public class BinarySearchTree {
             return val;
         }
     }
+
 }

@@ -51,5 +51,6 @@ public class MyQueue {
         System.out.println(obj.pop());
         System.out.println(obj.pop());
         System.out.println(obj.pop());
+        System.out.println(obj.peek());
     }
 }

@@ -1,8 +1,8 @@
-package com.BitManuplation.DSAMaths;
+package com.DSAMaths;
 
 public class FindSqrtOfNum {
 
-    private static double sqrt(int n, int p) {
+    private static double sqrt(int n, int presision) {
         int s=0;
         int e=n;
         double root=0.0;
@@ -21,7 +21,7 @@ public class FindSqrtOfNum {
             }
         }
         double increment=0.1;
-        for (int i = 0; i < p; i++) {
+        for (int i = 0; i < presision; i++) {
             while (root*root<=n){
                 root+=increment;
             }

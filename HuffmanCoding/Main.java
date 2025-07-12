@@ -1,11 +1,12 @@
 package com.HuffmanCoding;
 
-public class Maiin {
+public class Main {
     public static void main(String[] args) throws Exception{
-        String str="abbccda";
+        String str="Rahul";
         HuffmanCoder hf=new HuffmanCoder(str);
         String cs=hf.encode(str);
         System.out.println(cs);
-//        String dc=hf.decoder(cs);
+        String dc=hf.decode(cs);
+        System.out.println(dc);
     }
 }

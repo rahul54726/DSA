@@ -1,4 +1,4 @@
-package com.Rajpoot.Interface.Nested;
+package com.Rahul.Interface.Nested;
 
 import java.util.Scanner;
 

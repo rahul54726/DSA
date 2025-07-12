@@ -8,7 +8,6 @@ public class AVL {
         if(node==null){
             return -1;
         }
-
         return  node.height;
     }
     boolean isEmpty(){
@@ -47,11 +46,11 @@ public class AVL {
         if(height(node.left)-height(node.right)>1){
             //left heavy
             //left left case
-            if(height(node.left.left)>height(node.left.right)){
+            if(height(node.left.left)-height(node.left.right) > 0){
                 return rightRotate(node);
             }
             //left right case
-            if(height(node.left.left)<height(node.left.right)){
+            if(height(node.left.left)-height(node.left.right) < 0){
                 node.left=leftRotate(node.left);
                 return rightRotate(node);
             }
@@ -59,11 +58,11 @@ public class AVL {
         //right heavy
         if(height(node.left)-height(node.right) < -1){
             //right heavy
-            if(height(node.right.right)>height(node.right.left)){
+            if(height(node.right.left) - height(node.right.right) < 0){
                 return leftRotate(node);
             }
             //right left case
-            if(height(node.right.right)<height(node.right.left)){
+            if(height(node.right.left) - height(node.right.right) > 0){
                 node.right=rightRotate(node.right);
                 return leftRotate(node);
             }
@@ -71,21 +70,23 @@ public class AVL {
         return node;
     }
 
-    private Node leftRotate(Node p) {
-        Node c=p.right;
-        Node t=c.left;
-        c.left=p;
-        p.right=t;
-        Math.max(height(p.left),height(p.right) + 1);
-        c.height=Math.max(height(c.left),height(c.right) + 1);
-        return c;
-    }
-
     private Node rightRotate(Node p) {
         Node c=p.left;
         Node t=c.right;
-        c.left=p;
+        c.right=p;
         p.left=t;
+        p.height=Math.max(height(p.left),height(p.right) + 1);
+        c.height=Math.max(height(c.left),height(c.right) + 1);
+
+        return c;
+    }
+    private Node leftRotate(Node p) {
+        Node c=p.right;
+        Node t=c.left;
+
+        c.left=p;
+        p.right=t;
+
         p.height=Math.max(height(p.left),height(p.right) + 1);
         c.height=Math.max(height(c.left),height(c.right) + 1);
         return c;

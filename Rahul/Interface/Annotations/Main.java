@@ -1,4 +1,4 @@
-package com.Rajpoot.Interface.Annotations;
+package com.Rahul.Interface.Annotations;
 
 public class Main implements A,B{
 

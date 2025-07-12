@@ -1,10 +1,10 @@
-package com;
+package com.Multithreading.Executors;
 
 import java.util.concurrent.*;
 
 public class Demo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        ExecutorService executorService = Executors.newCachedThreadPool();
         Callable<String> call = () -> "Hello";
         Runnable run = () -> System.out.println("hello");
         Future<?> future =executorService.submit(run);

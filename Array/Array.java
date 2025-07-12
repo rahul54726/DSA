@@ -1,4 +1,4 @@
-package com.Arrays;// package com.Arrays;
+package com.Array;// package com.Arrays;
 import java.util.*;
 public class Array {
     public static void merge(int[] nums1, int m, int[] nums2, int n) {

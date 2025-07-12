@@ -6,14 +6,13 @@ public class CustomBinaryTree {
     public CustomBinaryTree(){
         this.size=0;
     }
-// insert elements
+            // insert elements
     public void  populate(Scanner in){
         System.out.println("Enter the Root Node val");
         int value= in.nextInt();
-        root=new Node(value);
+        this.root=new Node(value);
         populate(in,root);
     }
-
     private void populate(Scanner in, Node node) {
         System.out.println("Do you want to enter left of "+ node.value);
         boolean left=in.nextBoolean();
@@ -32,10 +31,10 @@ public class CustomBinaryTree {
             populate(in,node.right);
         }
     }
-
-public void display() {
-    display(root, "");
-}
+//          Display
+    public void display() {
+        display(this.root, "");
+    }
 
     private void display(Node node, String indent) {
         if (node == null) {
@@ -68,7 +67,7 @@ public void display() {
 
     private static class Node{
          int value;
-        Node left;
+         Node left;
          Node right;
         public Node(int val){
             this.value=val;

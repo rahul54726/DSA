@@ -1,10 +1,10 @@
-package com.Rajpoot.Generics;
+package com.Rahul.Generics;
 
 import java.util.Arrays;
 
 public class CustomArrayList {
     private int[] data;
-    private int DEFAULT_SIZE=10;
+    private static int DEFAULT_SIZE=10;
     private int size=0;
 
     @Override
@@ -24,9 +24,9 @@ public class CustomArrayList {
     }
 
     private void resize() {
-        int[] temp=new int[2*data.length];
+        int[] temp=new int[(int)(data.length * 1.5)];
 //        copy the current items in new array
-            for(int i=0;i<data.length;i++)     {
+            for(int i=0;i<data.length;i++){
                 temp[i]=data[i];
             }
             data=temp;

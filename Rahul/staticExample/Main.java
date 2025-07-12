@@ -1,4 +1,4 @@
-package com.Rajpoot.staticExample;
+package com.Rahul.staticExample;
 
 public class Main {
     public static void main(String[] args) {

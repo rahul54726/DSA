@@ -3,7 +3,7 @@ package com.LeetCode.stackandQueue;
 import java.util.Stack;
 
 public class ValidParanthesis {
-    public boolean isValid(String s) {
+    public static boolean isValid(String s) {
         Stack<Character> stack=new Stack<>();
         for(char ch : s.toCharArray()){
             if(ch == '(' || ch == '{' || ch == '[' ){
@@ -22,5 +22,10 @@ public class ValidParanthesis {
             }
         }
         return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        String s="[]";
+        System.out.println(isValid(s));
     }
 }
