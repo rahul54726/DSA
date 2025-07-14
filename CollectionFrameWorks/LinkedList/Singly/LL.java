@@ -645,14 +645,15 @@ public class LL {
    }
    //leetcode1290
    public int getDecimalValue(Node head) {
+       if(head.value == 0 && head.next ==null) return 0;
         int length = len(head) - 1;
         int result = 0;
         while(length >=0){
             if(head.value == 1){
-                result+= Math.pow(2,length--);
+                result+= Math.pow(2,length);
             }
             head= head.next;
-
+            length--;
         }
         return result;
    }
