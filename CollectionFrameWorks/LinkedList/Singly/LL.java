@@ -643,4 +643,18 @@ public class LL {
         }
         return count;
    }
+   //leetcode1290
+   public int getDecimalValue(Node head) {
+        int length = len(head) - 1;
+        int result = 0;
+        while(length >=0){
+            if(head.value == 1){
+                result+= Math.pow(2,length--);
+            }
+            head= head.next;
+
+        }
+        return result;
+   }
+
 }
