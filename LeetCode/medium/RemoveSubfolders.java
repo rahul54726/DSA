@@ -21,16 +21,7 @@ public class RemoveSubfolders {
         System.out.println(result);
         return result;
     }
-    private static int lastOccurance(String str){
-        int position = 0;
-        for(int i = str.length()-1;i>=0;i--){
-            if (str.charAt(i) =='/'){
-                position = i;
-                break;
-            }
-        }
-        return position;
-    }
+
 
     public static void main(String[] args) {
         removeSubfolders(new String[]{"/c","/d/c/e"});
