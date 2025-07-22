@@ -25,5 +25,8 @@ public class IntermediateOps {
         long count = names.stream().filter(name -> name.startsWith("R")).distinct().count();
         System.out.println(count);
         System.out.println(Stream.iterate(1,x -> x  +1 ).skip(10).limit(100).toList());
+        //5.peek
+//        performs an action on each element as it is consumed.
+        Stream.iterate(1,x ->x+1).skip(10).limit(100).peek(System.out::println).count();
     }
 }
