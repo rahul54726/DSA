@@ -13,7 +13,7 @@ public class MergeSort {
         }
 //        arr=mergesort(arr);
 //        System.out.print(Arrays.toString(arr));
-        InplacemergeSort(arr,0,arr.length);
+        inplaceMergeSort(arr,0,arr.length);
         System.out.println(Arrays.toString(arr));
     }
     static int[] mergesort(int[] arr){
@@ -53,13 +53,13 @@ public class MergeSort {
         }
             return mixarr;
     }
-    static void InplacemergeSort(int[] arr,int start ,int end){
+    static void inplaceMergeSort(int[] arr, int start , int end){
         int mid=start+(end-start)/2;
         if(end-start==1){
             return ;
         }
-        InplacemergeSort(arr,start,mid);
-        InplacemergeSort(arr,mid,end);
+        inplaceMergeSort(arr,start,mid);
+        inplaceMergeSort(arr,mid,end);
          mergeInplace(arr,start,mid,end);
     }
 
