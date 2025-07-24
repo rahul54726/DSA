@@ -24,7 +24,7 @@ public class Nicecar {
     public void stopMusic(){
         music.stop();
     }
-    public void upgradeengine(){
+    public void upgradeEngine(){
         this.engine=new ElectricEngine();
     }
 
