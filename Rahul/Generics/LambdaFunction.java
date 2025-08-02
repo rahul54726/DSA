@@ -22,6 +22,7 @@ public class LambdaFunction {
     private int operate(int a,int b,Operation op){
         return op.operation(a,b);
     }
+    @FunctionalInterface
     interface Operation{
         int operation(int a, int b);
     }
