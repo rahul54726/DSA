@@ -1,16 +1,16 @@
 package com.CollectionFrameWorks.Stack;
 
-public class DynamicStack extends CustomStackImpl{
+public class DynamicStack<T> extends CustomStackImpl{
     public DynamicStack() {
         super(); //it will call CustomStack
     }
 
-    @Override
-    public boolean push(int item) {
+
+    public boolean push(Object item) {
 //        this takes care of it being full
         if(this.isFull()){
 //            double the array size
-            int[] temp= new int[2*data.length];
+            Object[] temp= new Object[2*data.length];
 //            copy all elememts in temp
             for(int i=0;i<data.length;i++){
                 temp[i]=data[i];

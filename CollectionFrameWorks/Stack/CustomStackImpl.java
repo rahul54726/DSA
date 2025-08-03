@@ -1,19 +1,21 @@
 package com.CollectionFrameWorks.Stack;
 
-public class CustomStackImpl {
-    protected int[] data;
+import java.util.Arrays;
+
+public class CustomStackImpl<T> {
+    protected Object[] data;
     private static final int Default_size=10;
     int ptr =-1;
     public CustomStackImpl(){
         this(Default_size);
     }
     public CustomStackImpl(int size) {
-        this.data=new int[size];
+        this.data=new Object[size];
     }
-     public int getval(int index){
-        return data[index];
+     public T getval(int index){
+        return (T) data[index];
      }
-    public boolean push(int item) {
+    public boolean push(T item) {
         if(isFull()){
             System.out.println("Stack is full");
             return false;
@@ -22,19 +24,19 @@ public class CustomStackImpl {
         data[++ptr]=item;
         return true;
     }
-    public int pop() throws Exception{
+    public T pop() throws Exception{
         if(isEmpty()){
             throw new Exception("can't pop from an empty Stack");
         }
 //        int  removed = data[ptr];
 //        ptr--;
-        return data[ptr--];
+        return (T) data[ptr--];
     }
-    public int peek () throws  Exception{
+    public T peek () throws  Exception{
         if(isEmpty()){
             throw new Exception("Stack is empty");
         }
-        return data[ptr];
+        return (T) data[ptr];
 
     }
     public boolean isFull(){
@@ -42,5 +44,9 @@ public class CustomStackImpl {
     }
     private  boolean isEmpty(){
         return ptr ==-1;
+    }
+@Override
+    public String toString() {
+        return "Stack " + Arrays.toString(data) ;
     }
 }
