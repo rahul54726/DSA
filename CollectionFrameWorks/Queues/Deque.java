@@ -1,7 +1,7 @@
 package com.CollectionFrameWorks.Queues;
 
-public class Deque  {
-    protected int[] que;
+public class Deque<T>  {
+    protected Object[] que;
     private static final int DefaultSize=10;
     private int front=0;
     private int end=0;
@@ -10,7 +10,7 @@ public class Deque  {
         this(DefaultSize);
     }
     public Deque(int size) {
-        this.que = new int[size];
+        this.que = new Object[size];
     }
     private boolean isFull(){
         return size==que.length-1;
@@ -18,7 +18,7 @@ public class Deque  {
     private boolean isEmpty(){
         return size==0;
     }
-    public boolean addLast(int item){
+    public boolean addLast(T item){
         if(isFull()){
             System.out.println("Deque is Full");
             return false;
@@ -27,7 +27,7 @@ public class Deque  {
         size++;
         return true;
     }
-    public boolean addFirst(int item){
+    public boolean addFirst(T item){
         if(isFull()){
             System.out.println("Deque is Full");
             return false;

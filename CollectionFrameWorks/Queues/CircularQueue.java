@@ -1,7 +1,7 @@
 package com.CollectionFrameWorks.Queues;
 
-public class CircularQueue {
-    protected int[] data;
+public class CircularQueue<T> {
+    protected Object[] data;
     private static final int DEFAULT_SIZE=10;
     protected int front =0;
     protected int end=0;
@@ -10,7 +10,7 @@ public class CircularQueue {
         this(DEFAULT_SIZE);
     }
     public CircularQueue(int size){
-        this.data=new int[size];
+        this.data=new Object[size];
     }
     private boolean isfull(){
         return size==data.length-1;
@@ -18,7 +18,7 @@ public class CircularQueue {
     private boolean isEmpty(){
         return size==0;
     }
-    public boolean insert(int item){
+    public boolean insert(T item){
         if(isfull()){
             return false;
         }
@@ -27,11 +27,11 @@ public class CircularQueue {
         size++;
         return true;
     }
-    public int remove() throws  Exception{
+    public T remove() throws  Exception{
         if(isEmpty()){
             throw new Exception("Queue is Empty");
         }
-        int removed=data[front++];
+        T removed= (T) data[front++];
         front=front%data.length;
         size--;
         return removed;

@@ -1,7 +1,7 @@
 package com.CollectionFrameWorks.Queues;
 
-public class CustomQueue {
-    protected int[] data;
+public class CustomQueue<T> {
+    protected Object[] data;
     private static final int DEFAULT_SIZE=10;
     int first=0;
     int end=0;
@@ -9,20 +9,20 @@ public class CustomQueue {
         this(DEFAULT_SIZE);
     }
     public CustomQueue(int size){
-        this.data=new int[size];
+        this.data=new Object[size];
     }
-    public boolean insert(int item) {
+    public boolean insert(T item) {
         if(isfull()){
             return false;
         }
         data[end++]=item;
         return true;
     }
-    public int remove() throws  Exception{
+    public T remove() throws  Exception{
         if(isEmpty()){
             throw new Exception("Queue is Empty");
         }
-        int removed=data[0];
+        T removed= (T) data[0];
 //      shift the items to left
         for(int i=1;i<end;i++){
             data[i-1]=data[i];
@@ -30,19 +30,19 @@ public class CustomQueue {
         end--;
         return removed;
     }
-    public int removeCircular() throws  Exception{
+    public T removeCircular() throws  Exception{
         if(isEmpty()){
             throw new Exception("Queue is Empty");
         }
-        int removed=data[first];
+        T removed= (T) data[first];
             first++;
         return removed;
     }
-    public int front() throws Exception{
+    public T front() throws Exception{
         if(isEmpty()){
             throw new Exception("Queue is Empty");
         }
-        return data[0];
+        return (T) data[0];
     }
     public void display(){
         for(int i=0;i<end;i++){
