@@ -2,31 +2,31 @@ package com.LeetCode.medium;
 
 import com.CollectionFrameWorks.Heap.PriorityQueues;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class MinStack {
-    Deque<Integer> queue;
+    Stack<int[]> stack = new Stack<>();
     public MinStack() {
-        queue=new ArrayDeque();
+        stack = new Stack<>();
     }
 
     public void push(int val) {
-        queue.addLast(val);
+        if (stack.isEmpty()) stack.push(new int[]{val,val});
+        else {
+            stack.push(new int[]{val,Math.min(val,stack.peek()[1])});
+        }
     }
 
     public void pop() {
-        queue.removeLast();
+        stack.pop();
     }
 
     public int top() {
-        return queue.getLast();
+        return stack.peek()[0];
     }
 
     public int getMin() {
-        PriorityQueue<Integer> pq=new PriorityQueue<>(queue);
-        return pq.remove();
+        return stack.peek()[1];
     }
 
     public static void main(String[] args) {
