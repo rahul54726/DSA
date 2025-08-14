@@ -11,18 +11,13 @@ public class NextGreaterElement {
             while (!stack.isEmpty() && stack.peek() <= nums[i]){
                 stack.pop();
             }
-            if(stack.isEmpty()) {
-                NGE[i] = -1;
-            }
-            else {
-                NGE[i] = stack.peek();
-            }
+            NGE[i] = stack.isEmpty() ? -1 : stack.peek();
             stack.push(nums[i]);
         }
         return NGE;
     }
-    public static int[] nextSmallerElement(int[] nums){
-        int[] NSE = new int[nums.length];
+    public static int[] prevSmallerElement(int[] nums){
+        int[] PSE = new int[nums.length];
         Stack<Integer> stack = new Stack<>();
         for (int i = 0;i < nums.length;i++){
             int num = nums[i];
@@ -30,14 +25,14 @@ public class NextGreaterElement {
                 stack.pop();
             }
             if(stack.isEmpty()){
-                NSE[i] = -1;
+                PSE[i] = -1;
             }
             else {
-                NSE[i] = stack.peek();
+                PSE[i] = stack.peek();
             }
             stack.push(num);
         }
-        return NSE;
+        return PSE;
 
     }
     public static int[] nextGreaterElementCircular(int[] nums){
@@ -63,6 +58,6 @@ public class NextGreaterElement {
 
     public static void main(String[] args) {
 //        System.out.println(Arrays.toString(nextGreaterElementCircular(new int[]{6,0,8,1,3})));
-        System.out.println(Arrays.toString(nextSmallerElement(new int[]{5,7,9,6,7,4,5,1,3,7})));
+        System.out.println(Arrays.toString(prevSmallerElement(new int[]{5,7,9,6,7,4,5,1,3,7})));
     }
 }
