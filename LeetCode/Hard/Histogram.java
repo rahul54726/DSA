@@ -1,4 +1,5 @@
 package com.LeetCode.Hard;
+import java.util.Arrays;
 import java.util.Stack;
 public class Histogram {
     public int largestRectangleArea(int[] heights) {
@@ -82,8 +83,21 @@ public class Histogram {
         }
         return PSE;
     }
-
+    public static int maximum69Number (int num) {
+        StringBuilder sb = new StringBuilder(String.valueOf(num));
+        int left = 0;
+        int right = sb.length()-1;
+        while (left<=right){
+            if (sb.charAt(left) =='6' ){
+                sb.replace(left,left+1,"9");
+                break;
+            }
+            left++;
+        }
+        return Integer.parseInt(sb.toString());
+    }
     public static void main(String[] args) {
-        System.out.println(largestRectangleArea2(new int[]{2,1,5,6,2,3}));
+//        System.out.println(largestRectangleArea(new int[]{2,1,5,6,2,3}));
+        System.out.println(maximum69Number(9669));
     }
 }

@@ -58,6 +58,15 @@ public class TreeNode {
             current = current.right;
         }
     }
+    TreeNode segment ;
+    public void flattenRecursive(TreeNode root) {
+        if(root == null) return;
+        flattenRecursive(root.right);
+        flattenRecursive(root.left);
+        root.left = null;
+        root.right = segment;
+        segment = root;
+    }
 
 
     public boolean isValidBST(TreeNode root) {
