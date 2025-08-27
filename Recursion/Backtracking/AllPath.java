@@ -48,8 +48,8 @@ public class AllPath {
         if (r > 0) allpathprint(p + 'U', r - 1, maze, c,path,step+1);
         if (r < maze.length - 1) allpathprint(p + 'D', r + 1, maze, c,path,step+1);
         if (c > 0) allpathprint(p + 'L', r, maze, c - 1,path,step+1);
-//         this line is where the funtion will be over
-//        so before the function gets removed also remove the changes that were made by that funtion
+//         this line is where the function will be over
+//        so before the function gets removed also remove the changes that were made by that function
         maze[r][c]=true;
         path[r][c]=0;
     }

@@ -11,7 +11,7 @@ public class N_Queens {
             return 1;
         }
         int count=0;
-//        placing the queen and checking for every row and coloumn
+//        placing the queen and checking for every row and column
         for (int c=0; c<board.length;c++){
 //            place the queen if it is safe
             if(isSafe(board,r,c)){
