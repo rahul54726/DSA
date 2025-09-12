@@ -33,6 +33,9 @@ public class HashMapp {
 //        System.out.println(intersection(a,b));
         int[] nums={1,1,1,2,2,3};
         System.out.println(Arrays.toString(topKFrequent(nums,2)));
+        System.out.println(maxPoints(new int[][]{
+                {1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}
+        }));
     }
 //Frequency count//
     public static HashMap<Integer,Integer> freqCount(int[] nums){
@@ -164,6 +167,43 @@ public class HashMapp {
              result[index++]=minheap.poll().getKey();
         }
         return result;
+    }
+    public static int maxPoints(int[][] points) {
+        if (points.length <= 2) return points.length;
+        int result = 0;
+        int n = points.length;
+        for (int i = 0;i<n;i++){
+            HashMap<String,Integer> slopeMap = new HashMap<>();
+            int overLap = 0,vertical = 0,max = 0;
+            int x1 = points[i][0];
+            int y1 = points[i][1];
+            for (int j = i+1;j<n;j++){
+                int x2= points[j][0];
+                int y2 = points[j][1];
+                if (x1 == x2 && y1 == y2) overLap++;
+                else if (x1 == x2 ) {
+                    vertical++;
+                    max = Math.max(max,vertical);
+                }
+                else {
+                    int dy = y2 - y1;
+                    int dx = x2 - x1;
+                    int g = gcd(dx,dx);
+                    dy /=g;
+                    dx /=g;
+
+                    String slope = dy + "/" +dx;
+                    slopeMap.put(slope,slopeMap.getOrDefault(slope,0)+1);
+                    max = Math.max(max,slopeMap.get(slope));
+                }
+            }
+            result = Math.max(result,max+overLap+1);
+        }
+        return result;
+    }
+    private static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
     }
 }
 
