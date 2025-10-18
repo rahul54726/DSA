@@ -31,12 +31,12 @@ public class RevNumber {
         }
         return (n%10)*(int)(Math.pow(10,digit-1))+helper(n/10,digit-1);
     }
-    static  boolean isPallindeome(int num){
+    static  boolean isPalindrome(int num){
         return num == revnum(num);
     }
     public static void main(String[] args) {
         System.out.println(reversenum(1342));
         System.out.println(revnum(1234));
-        System.out.println(isPallindeome(12321));
+        System.out.println(isPalindrome(12321));
     }
 }
