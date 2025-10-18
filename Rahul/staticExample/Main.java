@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Human rahul =new Human(22, "Rahul Rajpoot", 200000,true);
         Human raj =new Human(20, "Raj", 200000,false);
-        Human priyashu =new Human(19, "Priyanshu", 200000,false);
+        Human priyanshu =new Human(19, "Priyanshu", 200000,false);
         System.out.println(rahul.name);
         System.out.println(rahul.salary);
         System.out.println(rahul.population);

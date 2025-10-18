@@ -10,4 +10,8 @@ class BoxWeight extends Box{
         super(l, h, w);
         this.weight=m;
     }
+    public BoxWeight(BoxWeight other){
+        super(other);
+        this.weight = other.weight;
+    }
 }
