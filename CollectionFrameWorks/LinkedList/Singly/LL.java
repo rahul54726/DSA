@@ -143,28 +143,27 @@ public class LL {
         tail=node;
         tail.next=null;
     }
-    public static Node merge(Node first,Node second){
-
-        LL ans=new LL();
+    public  Node merge(Node first,Node second){
+        Node dummy = new Node(-1);
+        Node current = dummy;
         while (first != null && second != null){
             if(first.value<second.value){
-                ans.insertLast(first.value);
+                current.next = first;
                 first=first.next;
             }
             else {
-                ans.insertLast(second.value);
+                current.next = second;
                 second=second.next;
             }
+            current = current.next;
         }
-        while (first!=null){
-            ans.insertLast(first.value);
-            first=first.next;
+        if(first!=null){
+            current.next = first;
         }
-        while (second!=null){
-            ans.insertLast(second.value);
-            second=second.next;
+        if (second!=null){
+            current.next = second;
         }
-        return ans.head;
+        return dummy.next;
     }
     static boolean isCyclic(Node head){
         Node fast=head;
