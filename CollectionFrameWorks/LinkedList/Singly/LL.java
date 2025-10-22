@@ -152,19 +152,19 @@ public class LL {
                 first=first.next;
             }
             else {
-                ans.insertLast(s.value);
-                s=s.next;
+                ans.insertLast(second.value);
+                second=second.next;
             }
         }
-        while (f!=null){
-            ans.insertLast(f.value);
-            f=f.next;
+        while (first!=null){
+            ans.insertLast(first.value);
+            first=first.next;
         }
-        while (s!=null){
-            ans.insertLast(s.value);
-            s=s.next;
+        while (second!=null){
+            ans.insertLast(second.value);
+            second=second.next;
         }
-        return ans;
+        return ans.head;
     }
     static boolean isCyclic(Node head){
         Node fast=head;
