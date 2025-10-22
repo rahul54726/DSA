@@ -143,9 +143,8 @@ public class LL {
         tail=node;
         tail.next=null;
     }
-    public static LL merge(LL first,LL second){
-        Node f = first.head;
-        Node s = second.head;
+    public static Node merge(Node first,Node second){
+
         LL ans=new LL();
         while (f != null && s != null){
             if(f.value<s.value){
