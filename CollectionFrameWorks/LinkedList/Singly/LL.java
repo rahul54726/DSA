@@ -146,10 +146,10 @@ public class LL {
     public static Node merge(Node first,Node second){
 
         LL ans=new LL();
-        while (f != null && s != null){
-            if(f.value<s.value){
-                ans.insertLast(f.value);
-                f=f.next;
+        while (first != null && second != null){
+            if(first.value<second.value){
+                ans.insertLast(first.value);
+                first=first.next;
             }
             else {
                 ans.insertLast(s.value);
