@@ -655,5 +655,28 @@ public class LL {
         }
         return result;
    }
-
+    public Node getIntersectionNode(Node headA, Node headB) {
+        if (headA == null || headB == null) return null;
+        Node a = headA;
+        Node b = headB;
+        while (a != b){
+            a = (a == null) ? headB : a.next;
+            b = (b == null) ? headA : b.next;
+        }
+        return a;
+    }
+    public Node modifiedList(int[] nums, Node head) {
+            HashSet<Integer> set = new HashSet<>();
+            for (int num:nums) set.add(num);
+            Node temp = new Node(0,head);
+            Node prev = temp;
+            while (prev.next != null){
+                if (set.contains(prev.next.value)){
+                    prev.next = prev.next.next;
+                }else {
+                    prev = prev.next;
+                }
+            }
+            return temp.next;
+    }
 }

@@ -2,7 +2,7 @@ package com.CollectionFrameWorks.Queues;
 
 public class QueueMain {
     public static void main(String[] args) throws Exception {
-       CustomQueue queue=new CustomQueue();
+       CustomQueue<Integer> queue=new CustomQueue<>();
         queue.insert(10);
         queue.insert(20);
         queue.insert(30);

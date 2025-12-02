@@ -1,17 +1,17 @@
 package com.CollectionFrameWorks.Stack;
 
-public class DynamicStack<T> extends CustomStackImpl{
+public class DynamicStack<T> extends CustomStackImpl<T>{
     public DynamicStack() {
         super(); //it will call CustomStack
     }
 
 
-    public boolean push(Object item) {
+    public boolean push(T item) {
 //        this takes care of it being full
         if(this.isFull()){
 //            double the array size
             Object[] temp= new Object[2*data.length];
-//            copy all elememts in temp
+//            copy all elements in temp
             for(int i=0;i<data.length;i++){
                 temp[i]=data[i];
             }

@@ -77,30 +77,30 @@ public class Graph {
 
    }
         //for directed graph
-   boolean isCyclic(Graph graph){
-        boolean[] visited = new boolean[graph.vertices];
-        boolean[] recStack = new boolean[graph.vertices];
-        for (int i=0;i< graph.vertices;i++){
-            if(!visited[i] && dfs(i,graph.adj,visited,recStack)){
-                return true;
-            }
-        }
-        return false;
-   }
-    private  boolean dfs(int node,LinkedList<Integer>[] adj,boolean[] visited,boolean[] recStack){
-        visited[node]=true;
-        recStack[node]=true;
-        for (int neighbor:adj[node]){
-            if (!visited[neighbor] && dfs(neighbor,adj,visited,recStack)){
-                return true;
-            }
-            else if ((recStack[neighbor])){
-                return true;
-            }
-        }
-        recStack[node]=false;
-        return false;
-    }
+//   boolean isCyclic(Graph graph){
+//        boolean[] visited = new boolean[graph.vertices];
+//        boolean[] recStack = new boolean[graph.vertices];
+//        for (int i=0;i< graph.vertices;i++){
+//            if(!visited[i] && dfs(i,graph.adj,visited,recStack)){
+//                return true;
+//            }
+//        }
+//        return false;
+//   }
+//    private  boolean dfs(int node,LinkedList<Integer>[] adj,boolean[] visited,boolean[] recStack){
+//        visited[node]=true;
+//        recStack[node]=true;
+//        for (int neighbor:adj[node]){
+//            if (!visited[neighbor] && dfs(neighbor,adj,visited,recStack)){
+//                return true;
+//            }
+//            else if ((recStack[neighbor])){
+//                return true;
+//            }
+//        }
+//        recStack[node]=false;
+//        return false;
+//    }
 
 //for bidirected graph//
 
@@ -116,17 +116,48 @@ public class Graph {
     private boolean bdfs(int node,int parent,LinkedList<Integer>[] adj,boolean[] visited){
         visited[node]=true;
         for (int neighbor : adj[node]){
-            if (!visited[neighbor]){
-                if (bdfs(neighbor,node,adj,visited)){
-                    return true;
-                }
-            }
-            else if (neighbor != parent){
+//            if (!visited[neighbor]){
+//                if (bdfs(neighbor,node,adj,visited)){
+//                    return true;
+//                }
+//            }
+//            else if (neighbor != parent){
+//                return true;
+//            }
+            if(neighbor == parent) continue;;
+            if (visited[neighbor]) return true;
+            if (bdfs(neighbor,node,adj,visited)) return true ;
+        }
+        return false;
+    }
+    // for directed graph
+    public static boolean isCyclic(LinkedList<Integer>[] adj){
+        int n = adj.length;
+        boolean[] visited = new boolean[n];
+        boolean[] inRecursion = new boolean[n];
+        for (int i = 0;i<n;i++){
+            if (!visited[i] && DGDFS(adj,i,visited,inRecursion)){
                 return true;
             }
         }
         return false;
     }
+
+    private static boolean DGDFS(LinkedList<Integer>[] adj, int i, boolean[] visited, boolean[] inRecursion) {
+        visited[i] = true;
+        inRecursion[i] = true;
+        for (int neighbor : adj[i]){
+            if (!visited[neighbor] && DGDFS(adj,neighbor,visited,inRecursion)){
+                return true;
+            } else if (inRecursion[neighbor]) {
+                return true;
+            }
+        }
+        inRecursion[i] = false;
+        return false;
+    }
+
+
     public static void main(String[] args) {
         Graph graph=new Graph(5);
         graph.addEdge(0,1);

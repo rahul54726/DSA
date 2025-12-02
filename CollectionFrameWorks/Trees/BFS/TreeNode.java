@@ -123,34 +123,21 @@ public class TreeNode {
         if (root == null){
             return result;
         }
-        Deque<TreeNode> que=new ArrayDeque<>();
+        Queue<TreeNode> que=new LinkedList<>();
         que.offer(root);
-        boolean reverse=false;
         while (!que.isEmpty()){
             int levelSize = que.size();
             List<Integer> currentLevelList=new ArrayList<>(levelSize);
             for (int i = 0; i < levelSize; i++) {
-                if (!reverse){
-                    TreeNode currentNode=que.pollFirst();
-                    currentLevelList.add(currentNode.val);
-                    if(currentNode.left!=null){
-                        que.addLast(currentNode.left);
-                    }if(currentNode.right!=null){
-                        que.addLast(currentNode.right);
-                    }
+                TreeNode currentNode=que.poll();
+                currentLevelList.add(currentNode.val);
+                if(currentNode.left!=null){
+                    que.offer(currentNode.left);
+                }if(currentNode.right!=null){
+                    que.offer(currentNode.right);
                 }
-                else {
-                    TreeNode currentNode=que.pollLast();
-                    currentLevelList.add(currentNode.val);
-                    if(currentNode.right!=null){
-                        que.addFirst(currentNode.right);
-                    }if(currentNode.left!=null){
-                        que.addFirst(currentNode.left);
-                    }
-                }
-                reverse = !reverse;
             }
-            result.addFirst(currentLevelList);
+            result.add(0,currentLevelList);
 
         }
         return result;

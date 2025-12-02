@@ -49,7 +49,7 @@ public class CircularQueue<T> {
     }
 
     public static void main(String[] args) throws  Exception{
-        CircularQueue cqueue=new CircularQueue();
+        CircularQueue<Integer> cqueue=new CircularQueue<>();
         cqueue.insert(10);
         cqueue.insert(20);
         cqueue.insert(30);

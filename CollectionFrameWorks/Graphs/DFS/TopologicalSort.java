@@ -17,37 +17,40 @@ public class TopologicalSort {
             adj[src].add(des);
         }
     void topologicalSort(){
-        boolean[] visited=new boolean[V];
-        Stack<Integer> stack=new Stack<>();
-        for (int i = 0; i < V ; i++) {
+        boolean[] visited = new boolean[V];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0;i<V;i++){
             if(!visited[i]){
                 dfs(i,visited,stack);
             }
-
         }
         while (!stack.isEmpty()){
-            System.out.print(stack.pop()+" ");
+            System.out.print(stack.pop() + " ");
         }
     }
     private void dfs(int node,boolean[] visited,Stack<Integer> stack){
-            visited[node]=true;
-        for (int neighbor:adj[node]) {
-            if (!visited[neighbor]){
-                dfs(neighbor,visited,stack);
+            visited[node] = true;
+            for (int neighbor : adj[node]){
+                if (!visited[neighbor]){
+                    dfs(neighbor,visited,stack);
+                }
             }
-        }
-        stack.push(node);
+            stack.push(node);
+
     }
     }
 
     public static void main(String[] args) {
         Graph graph = new Graph(6);
-        graph.addEdge(5, 2);
-        graph.addEdge(5, 0);
-        graph.addEdge(4, 0);
-        graph.addEdge(4, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(0, 3);
+        graph.addEdge(1, 4);
         graph.addEdge(2, 3);
+        graph.addEdge(2, 1);
         graph.addEdge(3, 1);
+        graph.addEdge(5, 1);
+        graph.addEdge(5, 4);
+
 
         System.out.print("Topological Sort: ");
         graph.topologicalSort();

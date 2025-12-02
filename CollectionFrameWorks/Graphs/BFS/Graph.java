@@ -151,6 +151,33 @@ public class Graph {
         }
         return false;
     }
+    public static boolean isCyclicUDG(List<Integer>[] adj ){
+        boolean[] visited = new boolean[adj.length];
+        for (int i = 0;i<adj.length;i++){
+            if(!visited[i] && isCyclicUDGBFS(adj,i,visited)) return true;
+        }
+        return false;
+    }
+
+    private static boolean isCyclicUDGBFS(List<Integer>[] adj, int i, boolean[] visited) {
+            Queue<int[]> queue = new LinkedList<>();
+            queue.offer(new int[]{i,-1});
+            visited[i] = true;
+            while (!queue.isEmpty()){
+                 int[] n = queue.poll();
+                 int node = n[0];
+                 int parent = n[1];
+                 for (int neighbor:adj[node]){
+                     if (!visited[neighbor]){
+                         visited[neighbor] = true;
+                         queue.offer(new int[]{neighbor,node});
+                     }
+                     else if (neighbor != parent) return true;
+                 }
+            }
+            return false;
+    }
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         Map<Integer,List<Integer>> graph = new HashMap<>();
         int[] inDegree = new int[numCourses];
@@ -181,24 +208,30 @@ public class Graph {
         return processedCources == numCourses;
     }
     public static void main(String[] args) {
-        Graph graph=new Graph(6);
-        graph.addEdge(1,2);
-        graph.addEdge(1,4);
-
-        graph.addEdge(2,3);
-        graph.addEdge(2,4);
-
-        graph.addEdge(3,5);
-
-        graph.addEdge(4,5);
-
-
-        graph.bfs(1);
-        System.out.println();
-        System.out.println(graph.bfs1(1));
-        graph.shortestPath(1);
-        System.out.println(graph.isCyclic());
-
+//        Graph graph=new Graph(6);
+//        graph.addEdge(1,2);
+//        graph.addEdge(1,4);
+//
+//        graph.addEdge(2,3);
+//        graph.addEdge(2,4);
+//
+//        graph.addEdge(3,5);
+//
+//        graph.addEdge(4,5);
+//
+//
+//        graph.bfs(1);
+//        System.out.println();
+//        System.out.println(graph.bfs1(1));
+//        graph.shortestPath(1);
+//        System.out.println(graph.isCyclic());
+        List<Integer>[] adj = new List[5];
+        adj[0] = List.of(1);
+        adj[1] = List.of(0,2,4);
+        adj[2] = List.of(3,1);
+        adj[3] = List.of(2,4);
+        adj[4] = List.of(3,1);
+        System.out.println(isCyclicUDG(adj));
     }
 
 }

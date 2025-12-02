@@ -9,8 +9,8 @@ public class KarpRabin {
         }
         return hashValue;
     }
-    private long updateHash(long pevHash,char oldChar,char newChar,int patternLength){
-        long newHash=(pevHash-oldChar)/prime;
+    private long updateHash(long prevHash, char oldChar, char newChar, int patternLength){
+        long newHash=(prevHash -oldChar)/prime;
         newHash= (long) (newHash+newChar*Math.pow(prime,patternLength-1));
         return newHash;
     }
