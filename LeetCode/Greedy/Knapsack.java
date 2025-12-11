@@ -6,7 +6,7 @@ public class Knapsack {
     public static double fractionalKnapsack(int W, int[] weight, int[] value) {
         int n = weight.length;
 
-        // ratio array: {ratio, weight, value}
+
         double[][] arr = new double[n][3];
 
         for (int i = 0; i < n; i++) {
@@ -15,7 +15,7 @@ public class Knapsack {
             arr[i][2] = value[i];
         }
 
-        // sort by ratio descending
+
         Arrays.sort(arr, (a, b) -> Double.compare(b[0], a[0]));
 
         double maxValue = 0.0;
@@ -69,13 +69,15 @@ public static int knapsack01(int W, int[] weight, int[] value) {
     return k[n][W];
 }
     public static void main(String[] args) {
-        int W = 50;
-        int[] weights = {10, 20, 30};
-        int[] values = {60, 100, 120};
+        int W = 60;
+//        int[] weights = {10, 20, 30};
+        int[] values = {15, 45, 10, 30, 60, 25, 35, 50, 40, 55};
+//        int[] values = {60, 100, 120};
+        int[] weights = {2, 10, 1, 5, 20, 8, 7, 12, 9, 15};
         int n = weights.length;
 
         System.out.println(fractionalKnapsack(W, weights, values));
         // expected: 240.0
-        System.out.println(knapsack01(8,new int[]{0,1,2,5,6},new int[]{0,2,3,4,5}));
+//        System.out.println(knapsack01(8,new int[]{0,1,2,5,6},new int[]{0,2,3,4,5}));
     }
 }
