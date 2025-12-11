@@ -26,7 +26,7 @@ public class Main {
         boys.forEach(System.out::println);
 
         //constructor Reference
-        List<String> names = Arrays.asList("Samsumg" ,"IPhone","Vivo","Oppo","Redmi");
+        List<String> names = Arrays.asList("Samsung" ,"IPhone","Vivo","Oppo","Redmi");
 //        List<MobilePhone> collect = names.stream().map(phone -> new MobilePhone(phone)).collect(Collectors.toList());
         List<MobilePhone> collect = names.stream().map(MobilePhone::new).toList();
     }
