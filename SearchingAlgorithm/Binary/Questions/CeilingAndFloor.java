@@ -1,4 +1,4 @@
-package com.SearchingAlgorithm.Binary;
+package com.SearchingAlgorithm.Binary.Questions;
 
 import java.util.Arrays;
 import java.util.Scanner;

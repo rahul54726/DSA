@@ -1,6 +1,7 @@
 package com.Streams;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -28,5 +29,31 @@ public class IntermediateOps {
         //5.peek
 //        performs an action on each element as it is consumed.
         Stream.iterate(1,x ->x+1).skip(10).limit(100).peek(System.out::println).count();
+//        8.flatMp
+//        handel streams of collections , list or arrays where each element is itself a collection
+//        Flatten nested structures so that they can be processed as a single sequence of elements
+//        Transform and flatten elements at the same time
+        List<List<String>> listOfList = Arrays.asList(
+                Arrays.asList("Apple","Banana"),
+                Arrays.asList("Orange" , "Kiwi"),
+                Arrays.asList("Pear", "Grape")
+        );
+          System.out.println(listOfList.get(0).get(1));
+        System.out.println(listOfList
+                .stream()
+                .flatMap(Collection::stream)
+                .map(String::toUpperCase)
+                .toList());
+        List<String> sentences = Arrays.asList(
+                "Hello My name is Rahul",
+                "I am learning Java Streams ",
+                "Java Streams are So Powerful",
+                "and Flatten map is Useful"
+        );
+        System.out.println(sentences
+                .stream()
+                .flatMap(sentence -> Arrays.stream(sentence.split( " "))
+                        .map(String::toUpperCase))
+                .toList());
     }
 }

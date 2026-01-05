@@ -31,7 +31,7 @@ public class TerminalOps {
 //        8.min max
         System.out.println( "max : " + Stream.of(1,2,3,44).max(Comparator.naturalOrder()));
         System.out.println( "max : " + Stream.of(1,2,3,44).max((o1,o2) -> o1 -o2));
-
+        System.out.println("min : " + Stream.of(1,2,3,5).min(Comparator.naturalOrder()));
         List<Integer> list = Arrays.asList(5,6,4,8,7,9);
         List<Integer> list1 = list.stream().map(x -> x * x).sorted().toList();
         System.out.println(list1);
@@ -41,6 +41,7 @@ public class TerminalOps {
         String sentence = "HelloWorld";
         long count = sentence.chars().filter(x -> x == 'l').count();
         System.out.println(count);
+
         
 
     }

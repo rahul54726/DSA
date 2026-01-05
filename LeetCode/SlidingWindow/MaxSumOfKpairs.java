@@ -1,15 +1,19 @@
 package com.LeetCode.SlidingWindow;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MaxSumOfKpairs {
     public static void main(String[] args) {
-        int[] arr = {2, 1, 5, 1, 3, 2};
-        System.out.println(maxSum(arr,3));
-        System.out.println(smallestSubarray(arr,5));
-        System.out.println(minimumRecolors("WBBWWBBWBW",7));
-        System.out.println(longestSubArray(arr,8));
+//        int[] arr = {2, 1, 5, 1, 3, 2};
+//        System.out.println(maxSum(arr,3));
+//        System.out.println(smallestSubarray(arr,5));
+//        System.out.println(minimumRecolors("WBBWWBBWBW",7));
+//        System.out.println(longestSubArray(arr,8));
+        System.out.println(longestSubArr(new int[]{2,5,1,7,10},14));
+        System.out.println(maxPointFromCards(new int[]{6,2,3,4,7,2,1,7,1},4));
+        System.out.println(longestSubstringWithoutRepeatingChars("qwertyuioplkjhgfdsazxcvbnm"));
     }
     //For Static window
     public static int maxSum(int[] nums,int k){
@@ -107,7 +111,50 @@ public class MaxSumOfKpairs {
         }
         return min;
     }
-//    private int longestSubarr(int[] nums,int k){
-//
-//    }
+    private static int longestSubArr(int[] nums,int k){
+        int maxLen = 0;
+        int l = 0;
+        int sum = 0;
+        for (int r = 0;r < nums.length;r++){
+            sum += nums[r];
+            if (sum > k){
+                sum -= nums[l];
+                l++;
+            }
+            if (sum <= k){
+                maxLen = Math.max(maxLen,r - l + 1);
+            }
+        }
+        return maxLen;
+    }
+    private static int maxPointFromCards(int[] nums , int k ){
+         int lsum = 0,rsum = 0,max = 0;
+         for (int i = 0;i<k;i++){
+             lsum += nums[i];
+         }
+         int right = nums.length - 1;
+         for (int i = k - 1;i>=0;i--){
+             lsum -= nums[i];
+             rsum += nums[right --];
+             max = Math.max(lsum + rsum ,max);
+         }
+         return max;
+    }
+    private static int longestSubstringWithoutRepeatingChars(String s){
+        int[] chars = new int[256];
+        Arrays.fill(chars,-1);
+        int max = 0;
+        int l = 0;
+        for (int r = 0; r < s.length();r++){
+            if(chars[s.charAt(r)]  != -1){
+                if (chars[s.charAt(r)] >= l) {
+                    l = chars[s.charAt(r)] + 1;
+                }
+            }
+            chars[s.charAt(r)] = r;
+            max = Math.max(r - l + 1 , max);
+        }
+        return max;
+    }
+
 }
