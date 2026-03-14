@@ -21,7 +21,7 @@ public class ReadWriteCounter {
         }
     }
     public int getCount(){
-        readLock.lock();
+        readLock.lock(); // multiple threads can accuire this read lock
         try {
             return this.count;
         }

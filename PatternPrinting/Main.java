@@ -4,18 +4,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int num=sc.nextInt();
+//        Scanner sc=new Scanner(System.in);
+//        int num=sc.nextInt();
         System.out.println("Pattern 1 : ");
-        pattern1(num);
-        System.out.println("Pattern 2 : ");
-        pattern2(num);
-        System.out.println("Pattern 3 : ");
-        pattern3(num);
-        System.out.println("Pattern 4 : ");
-        pattern4(num);
-        System.out.println("Pattern 5 : ");
-        pattern5(num);
+//        pattern1(num);
+//        pattern3(5);
+//        pattern4(5);
+        pattern8(5);
+
 
     }
     public static void pattern1(int n){
@@ -34,17 +30,43 @@ public class Main {
             System.out.println();
         }
     }public static void pattern3(int n){
-        for(int row = 1; row <=n; row++){
-            for (int col=1;col<=row;col++){
-                System.out.print(col +" ");
+        for (int i = 0;i < n;i++){
+            for(int j = n;j>i;j--){
+                System.out.print("@ ");
             }
             System.out.println();
         }
     }
     public static void pattern4(int n){
-        for(int row = 0; row <n; row++){
-            for (int col=n;col>row;col--){
-                System.out.print("* ");
+        for(int r = 1;r <=n;r++){
+            for (int c = 1; c <= r ; c++) {
+                System.out.print(c + " ");
+            }
+            System.out.println();
+        }
+    }public static void pattern7(int n){
+        for(int r = 1;r <=n;r++){
+            for (int c = 1; c <= r ; c++) {
+                System.out.print(r + " ");
+            }
+            System.out.println();
+        }
+    }
+    public static void pattern8(int n){
+        int count = 0;
+        for(int r = 0;r <n;r++){
+            for (int c = 0; c < r ; c++) {
+                count++;
+                System.out.print(count + " ");
+            }
+            System.out.println();
+        }
+    }public static void pattern9(int n){
+        int count = 0;
+        for(int r = 0;r <n;r++){
+            for (int c = 0; c < r ; c++) {
+                count++;
+                System.out.print(count + " ");
             }
             System.out.println();
         }

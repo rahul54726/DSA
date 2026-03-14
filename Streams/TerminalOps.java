@@ -29,6 +29,8 @@ public class TerminalOps {
 //      7.toArray
         Stream.of(1,2,3).toArray();
 //        8.min max
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        System.out.println(numbers.stream().reduce(Integer::sum).get());
         System.out.println( "max : " + Stream.of(1,2,3,44).max(Comparator.naturalOrder()));
         System.out.println( "max : " + Stream.of(1,2,3,44).max((o1,o2) -> o1 -o2));
         System.out.println("min : " + Stream.of(1,2,3,5).min(Comparator.naturalOrder()));
@@ -41,7 +43,11 @@ public class TerminalOps {
         String sentence = "HelloWorld";
         long count = sentence.chars().filter(x -> x == 'l').count();
         System.out.println(count);
-
+        int[] arr = {1,5,2,100};
+        System.out.println(Arrays.stream(arr).max().getAsInt());
+        // forEachOrdered
+        List<Integer> nums0 = Arrays.asList(1,2,3,4,5,6,7,8,9);
+        nums0.forEach(System.out::println);
         
 
     }

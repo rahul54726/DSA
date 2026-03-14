@@ -9,13 +9,14 @@ public class LambdaFunction {
         list.forEach((item)  -> System.out.print(item*2 +" "));
         System.out.println();
         Operation sum=(a,b) -> (a+b);
+        Operation sum2 = Integer::sum;
         Operation product=(a,b) -> (a*b);
         Operation divide=(a,b) -> (a/b);
         Operation sub=(a,b) -> (a-b);
         LambdaFunction calc=new LambdaFunction();
         System.out.println(calc.operate(5,3,product));
         System.out.println(calc.operate(10,5,divide));
-        System.out.println(calc.operate(1,5,sum));
+        System.out.println(calc.operate(1,5, sum2));
         System.out.println(calc.operate(1,5,sub));
     }
 

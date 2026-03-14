@@ -30,10 +30,8 @@ public class DijkstraAlgorithm {
         while (!queue.isEmpty()){
             int[] current=queue.poll();
             int node=current[0];
-            int currdis=current[1];
-            if (currdis>dis[node]) {
-                continue;
-            }
+            int currDis=current[1];
+            if (currDis>dis[node]) continue;
             for (Edge edge:adj[node]){
                 int newDis=dis[node]+edge.weight;
                 if(newDis<dis[edge.des]){
@@ -57,4 +55,12 @@ public class DijkstraAlgorithm {
             this.weight = weight;
         }
     }
+//    public int[] dijkstra(int V, int[][] edges, int src) {
+//        HashMap<Integer ,List<int[]>> graph = new HashMap<>();
+//        for(int[] edge : edges){
+//            graph.computeIfAbsent(edge[0], k->new ArrayList<>());
+//            graph.get(edge[0]).add(new int[]{edge[1], edge[2]});
+//        }
+//
+//    }
 }

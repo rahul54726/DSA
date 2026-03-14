@@ -1,6 +1,7 @@
 package com.CollectionFrameWorks.Graphs;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class WtGraph {
     private int vertices;
@@ -19,8 +20,8 @@ public class WtGraph {
             adjlist[i]=new LinkedList<Edge>();
         }
     }
-    public void addaEdge(int source,int destinaltion,int weight){
-        Edge edge=new Edge(destinaltion,weight);
+    public void addaEdge(int source, int destination, int weight){
+        Edge edge=new Edge(destination,weight);
         adjlist[source].add(edge);
     }
     public void display(){
@@ -33,12 +34,14 @@ public class WtGraph {
             System.out.println();
         }
     }
-public ArrayList<Integer> getne(int source){
-        ArrayList<Integer> list =new ArrayList<>();
-        for (Edge edge :adjlist[source]){
-            list.add(edge.destination);
-        }
-    return list;
-}
-
+    public ArrayList<Integer> getne(int source){
+            ArrayList<Integer> list =new ArrayList<>();
+            for (Edge edge :adjlist[source]){
+                list.add(edge.destination);
+            }
+        return list;
+    }
+//    public List<Integer> shortestPath(){
+//
+//    }
 }

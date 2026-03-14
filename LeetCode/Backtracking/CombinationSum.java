@@ -23,4 +23,14 @@ public class CombinationSum {
             inner.remove(inner.size() - 1);
         }
     }
+    public List<List<Integer>> combinationSumII(int[] nums, int target){
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> inner = new ArrayList<>();
+        backtrackII(nums, target,inner,res,0);
+        return res;
+    }
+
+    private void backtrackII(int[] nums, int target, List<Integer> inner, List<List<Integer>> res, int start) {
+
+    }
 }

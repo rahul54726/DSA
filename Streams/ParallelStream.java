@@ -11,10 +11,10 @@ public class ParallelStream {
         //Allowing multiple threads to process parts of the stream simultaneously
         //this is distributed across multiple threads
         //improves performance for large data sets
-        List<Integer> list = Stream.iterate(1, x -> x + 1).limit(20000).toList();
+        List<Integer> list = Stream.iterate(1, x -> x + 1).limit(20).toList();
 //        list.stream().map(x -> fact(x)).toList();
         List<Long> factorials = list.stream().map(ParallelStream::fact).sequential().toList();
-//        System.out.println(factorials);
+        System.out.println(factorials);
         //make sure to use in CPU intensive or large datasets where tasks are independent
         //Cumulative Sum
         List<Integer> nums = Arrays.asList(1,2,3,4,5);

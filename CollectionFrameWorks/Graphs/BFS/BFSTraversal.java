@@ -41,7 +41,8 @@ public class BFSTraversal {
             if(!visited[i] && check(graph,visited,i)){
                 return true;
             }
-        }return false;
+        }
+        return false;
     }
 
     private boolean check(List<List<Integer>> graph, boolean[] visited, int start) {

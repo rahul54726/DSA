@@ -24,12 +24,7 @@ public class NextGreaterElement {
             while (!stack.isEmpty() && stack.peek() >= num){
                 stack.pop();
             }
-            if(stack.isEmpty()){
-                PSE[i] = -1;
-            }
-            else {
-                PSE[i] = stack.peek();
-            }
+            PSE[i] = stack.isEmpty() ? -1 : stack.peek();
             stack.push(num);
         }
         return PSE;

@@ -20,7 +20,7 @@ public class Main {
         System.out.println(doubleIt.andThen(tripleIt).apply(100));
         System.out.println(doubleIt.compose(tripleIt).apply(12));
 
-        //Methode Reference --> use methode invoking & in place of lambda Expression
+        // (::) Methode Reference --> use methode invoking & in place of lambda Expression
         List<String> boys = Arrays.asList("Rahul", "Kunal", "Vipul");
         boys.forEach(item-> System.out.println(item));
         boys.forEach(System.out::println);
