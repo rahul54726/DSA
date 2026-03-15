@@ -45,7 +45,7 @@ public class CustomStackImpl<T> {
     private  boolean isEmpty(){
         return ptr ==-1;
     }
-@Override
+    @Override
     public String toString() {
         return "Stack " + Arrays.toString(data) ;
     }

@@ -16,7 +16,13 @@ public class Maze {
                 {true,true,true},
         };
         pathwithobs("",0,board,0 );
+        System.out.println();
+        System.out.println(paths(3 , 3));
 
+    }
+    static  int paths(int r , int c){
+        if(r == 1 || c == 1) return 1;
+        return paths(r - 1  , c) + paths(r , c - 1);
     }
     static void path(String p, int r, int c){
         if(r==1 && c==1){

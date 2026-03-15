@@ -6,8 +6,8 @@ public class basic {
             return ans;
         }
         while (ptr <str.length()){
-            if(str.charAt(ptr)!='a')  return withouta(ptr +1,str,ans+str.charAt(ptr));
-            else if(str.charAt(ptr)=='a') return withouta(ptr +1,str,ans);
+            if(str.charAt(ptr)!='a')  return withouta(ptr + 1,str,ans+str.charAt(ptr));
+            else if(str.charAt(ptr)=='a') return withouta(ptr + 1,str,ans);
         }
         return ans;
     }
