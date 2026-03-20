@@ -1,3 +1,5 @@
+package com.Array;
+
 public class peakElement {
 public static int peakindex(int[] arr){
     int start=0;

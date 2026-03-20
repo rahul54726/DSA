@@ -13,7 +13,7 @@ public class CircularQueue<T> {
         this.data=new Object[size];
     }
     private boolean isfull(){
-        return size==data.length-1;
+        return size==data.length;
     }
     private boolean isEmpty(){
         return size==0;

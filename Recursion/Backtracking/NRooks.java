@@ -8,9 +8,9 @@ public class NRooks {
             return 1;
         }
         int count=0;
-//        placing the queen and checking for every row and column
+//        placing the rook and checking for every row and column
         for (int c=0; c<board.length;c++){
-//            place the queen if it is safe
+//            place the rook if it is safe
             if(isSafe(board,r,c)){
                 board[r][c]=true;
                 count+= nRooks(board,r+1);

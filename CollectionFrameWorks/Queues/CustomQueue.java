@@ -28,6 +28,7 @@ public class CustomQueue<T> {
             data[i-1]=data[i];
         }
         end--;
+        data[end] = null;
         return removed;
     }
     public T removeCircular() throws  Exception{
@@ -51,7 +52,7 @@ public class CustomQueue<T> {
         System.out.print("END");
     }
     public boolean isfull(){
-        return end==data.length-1;
+        return end==data.length;
     }
     public boolean isEmpty(){
         return end==0;

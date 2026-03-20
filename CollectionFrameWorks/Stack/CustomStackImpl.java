@@ -26,11 +26,12 @@ public class CustomStackImpl<T> {
     }
     public T pop() throws Exception{
         if(isEmpty()){
-            throw new Exception("can't pop from an empty Stack");
+            throw new java.util.EmptyStackException();
         }
-//        int  removed = data[ptr];
-//        ptr--;
-        return (T) data[ptr--];
+        T  removed = (T)data[ptr];
+        data[ptr] = null;
+        ptr--;
+        return removed;
     }
     public T peek () throws  Exception{
         if(isEmpty()){
@@ -47,6 +48,6 @@ public class CustomStackImpl<T> {
     }
     @Override
     public String toString() {
-        return "Stack " + Arrays.toString(data) ;
+        return "Stack " + Arrays.toString(Arrays.copyOfRange(data, 0, ptr + 1));
     }
 }

@@ -45,6 +45,38 @@ public class Deque<T> {
         size++;
         return true;
     }
+    public T removeLast(){
+        if (isEmpty()){
+            throw new NullPointerException("No element is present in the Deque");
+        }
+        size--;
+        T removed = (T)que[size];
+        que[size] = null;
+        return  removed;
+    }
+    public T removeFirst(){
+        if (isEmpty()) throw new java.util.NoSuchElementException("Deque is Empty");
+        T removed = (T) que[0];
+        for (int i = 1; i < size;i++){
+            que[i-1] = que[i];
+        }
+        size--;
+        que[size]= null;
+        return removed;
+    }
+    public T getFirst() {
+        if (isEmpty()) {
+            throw new java.util.NoSuchElementException("Deque is empty");
+        }
+        return (T) que[0];
+    }
+
+    public T getLast() {
+        if (isEmpty()) {
+            throw new java.util.NoSuchElementException("Deque is empty");
+        }
+        return (T) que[size - 1]; // Remember, the last item is at size - 1
+    }
 
     public void display() throws Exception {
         if (isEmpty()) {
@@ -57,12 +89,14 @@ public class Deque<T> {
     }
 
     public static void main(String[] args) throws Exception {
-        Deque<Integer> q = new Deque<>(5);
+        Deque<Integer> q = new Deque<>(10);
         q.addLast(10);
         q.addLast(20);
         q.addLast(30);
         q.addLast(40);
         q.addFirst(100);
+        q.display();
+        q.removeLast();
         q.display();
     }
 }
