@@ -19,6 +19,11 @@ public class FloydWarshallAPSP {
                 }
             }
         }
+        for (int i = 0; i < n; i++) {
+            if (dist[i][i] < 0) {
+                System.out.println("Negative cycle detected at vertex " + i);
+            }
+        }
         return dist;
     }
 
