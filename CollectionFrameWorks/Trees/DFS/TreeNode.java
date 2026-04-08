@@ -48,7 +48,7 @@ public class TreeNode {
         while (current != null){
             if(current.left != null){
                 TreeNode temp = current.left;
-                while (temp != null) {
+                while (temp.right!= null) {
                     temp = temp.right;
                 }
                 temp.right = current.right;
