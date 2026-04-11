@@ -124,7 +124,7 @@ public class TreeNode {
     }
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         if(preorder.length == 0) return null;
-        int root =preorder[0];
+        int root = preorder[0];
         int index = 0;
         while (inorder[index] != root) index++;
         TreeNode node =new TreeNode(root);
