@@ -49,9 +49,9 @@ public class Maze {
             return list;
         }
         ArrayList<String> ans=new ArrayList<>();
-            if(c>1) ans.addAll(pathret(p+'R',r,c-1));
-            if(r>1) ans.addAll(pathret(p+'D',r-1,c));
-            return ans;
+        if(c>1) ans.addAll(pathret(p+'R',r,c-1));
+        if(r>1) ans.addAll(pathret(p+'D',r-1,c));
+        return ans;
     }
     static ArrayList<String> pathretlist(String p, int r, int c,ArrayList<String> list){
         if(r==1 && c==1){
