@@ -36,7 +36,7 @@ public class CustomQueue<T> {
             throw new Exception("Queue is Empty");
         }
         T removed= (T) data[first];
-            first++;
+        first++;
         return removed;
     }
     public T front() throws Exception{
