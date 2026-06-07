@@ -6,15 +6,7 @@ public class HuffmanCoder {
     HashMap<String,Character> decoder;
     public HuffmanCoder(String feeder) throws Exception{
         HashMap<Character,Integer> fmap=new HashMap<>();
-//        for(int i=0;i<feeder.length();i++){
-//            char cc=feeder.charAt(i);
-//            if (fmap.containsKey(cc)){
-//                int ov=fmap.get(cc);
-//                ov+=1;
-//                fmap.put(cc,ov);
-//            }
-//
-//        }
+
             for(char ch:feeder.toCharArray()){
                 fmap.put(ch,fmap.getOrDefault(ch,0)+1);
             }
