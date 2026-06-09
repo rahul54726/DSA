@@ -103,7 +103,7 @@ public class TreeNode {
         return left==null ? right:left;
 
     }
-    int count =0;
+    int count = 0;
     public int kthSmallest(TreeNode root, int k) {
         return helper(root,k).val;
 
