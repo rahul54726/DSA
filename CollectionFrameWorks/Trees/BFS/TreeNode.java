@@ -56,7 +56,7 @@ public class TreeNode {
             double avg=0;
             for (int i = 0; i < levelSize; i++) {
                 TreeNode currentNode=que.poll();
-               avg += currentNode.val;
+                avg += currentNode.val;
 
                 if(currentNode.left!=null){
                     que.offer(currentNode.left);

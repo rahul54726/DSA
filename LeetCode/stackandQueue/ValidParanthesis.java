@@ -11,13 +11,13 @@ public class ValidParanthesis {
             }
             else {
                 if (ch == ')' ){
-                    if(stack.pop() != '(' || stack.isEmpty()) return false;
+                    if( stack.isEmpty() || stack.pop() != '(' ) return false;
                 }
                 if (ch == '}' ){
-                    if(stack.pop() != '{' || stack.isEmpty()) return false;
+                    if(stack.isEmpty() ||  stack.pop() != '{' ) return false;
                 }
                 if (ch == ']' ){
-                    if(stack.pop() != '[' || stack.isEmpty()) return false;
+                    if(stack.isEmpty() || stack.pop() != '[' ) return false;
                 }
             }
         }

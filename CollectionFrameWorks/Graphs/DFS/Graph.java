@@ -116,14 +116,6 @@ public class Graph {
     private boolean bdfs(int node,int parent,LinkedList<Integer>[] adj,boolean[] visited){
         visited[node]=true;
         for (int neighbor : adj[node]){
-//            if (!visited[neighbor]){
-//                if (bdfs(neighbor,node,adj,visited)){
-//                    return true;
-//                }
-//            }
-//            else if (neighbor != parent){
-//                return true;
-//            }
             if(neighbor == parent) continue;;
             if (visited[neighbor]) return true;
             if (bdfs(neighbor,node,adj,visited)) return true ;

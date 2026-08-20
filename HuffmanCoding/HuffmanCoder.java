@@ -5,32 +5,34 @@ public class HuffmanCoder {
     HashMap<Character,String> encoder;
     HashMap<String,Character> decoder;
     public HuffmanCoder(String feeder) throws Exception{
+        if (feeder == null || feeder.isEmpty()) {
+            throw new IllegalArgumentException("Feeder string cannot be null or empty.");
+        }
         HashMap<Character,Integer> fmap=new HashMap<>();
+        for(char ch:feeder.toCharArray()){
+            fmap.put(ch,fmap.getOrDefault(ch,0)+1);
+        }
+        Heaps<Node> minHeap=new Heaps<>();
+        Set< Map.Entry<Character,Integer>> entrySet=fmap.entrySet();
 
-            for(char ch:feeder.toCharArray()){
-                fmap.put(ch,fmap.getOrDefault(ch,0)+1);
-            }
-            Heaps<Node> minHeap=new Heaps<>();
-            Set< Map.Entry<Character,Integer>> entrySet=fmap.entrySet();
+        for (Map.Entry<Character,Integer> entry:entrySet){
+            Node node=new Node(entry.getKey(),entry.getValue());
+            minHeap.insert(node);
+        }
+        while (minHeap.size()!=1){
+            Node first = minHeap.remove();
+            Node second=minHeap.remove();
 
-           for (Map.Entry<Character,Integer> entry:entrySet){
-               Node node=new Node(entry.getKey(),entry.getValue());
-               minHeap.insert(node);
-           }
-           while (minHeap.size()!=1){
-               Node first = minHeap.remove();
-               Node second=minHeap.remove();
-
-               Node newNode=new Node(null, first.cost+second.cost);
-               newNode.left=first;
-               newNode.right=second;
-               minHeap.insert(newNode);
-           }
-           Node ft=minHeap.remove();
-           this.encoder=new HashMap<>();
-           this.decoder=new HashMap<>();
-           this.initEncoderDecoder(ft,"");
-            }
+            Node newNode=new Node(null, first.cost+second.cost);
+            newNode.left=first;
+            newNode.right=second;
+            minHeap.insert(newNode);
+        }
+        Node ft=minHeap.remove();
+        this.encoder=new HashMap<>();
+        this.decoder=new HashMap<>();
+        this.initEncoderDecoder(ft,"");
+    }
 
     private void initEncoderDecoder(Node node, String osf) {
         if (node ==null){

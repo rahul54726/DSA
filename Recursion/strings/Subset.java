@@ -74,10 +74,30 @@ public class Subset {
     }
 
     public static void main(String[] args) {
-        int[] arr={1,2,2};
+        int[] arr={1,2,2,3};
         int[] arr2={0,0,0,0};
 //        System.out.println(subset(arr2));
         System.out.println(subsetDuplicate(arr));
 //        System.out.println(threeSum(arr2));
+        System.out.println(sub(new int[]{1,2 ,2 ,3}));
+    }
+    public static List<List<Integer>> sub(int[] nums){
+        Arrays.sort(nums);
+        int start;
+        int end = 0;
+        List<List<Integer>> outer = new ArrayList<>();
+        outer.add(new ArrayList<>());
+        for(int i = 0;i < nums.length;i++){
+            start = 0;
+            if(i > 0 && nums[i] == nums[i-1]) start = end  + 1;
+            end = outer.size() - 1;
+            int n = outer.size();
+            for(int j = start; j < n; j++){
+                List<Integer> inner = new ArrayList<>(outer.get(j));
+                inner.add(nums[i]);
+                outer.add(inner);
+            }
+        }
+        return outer;
     }
 }
